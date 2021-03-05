@@ -1,0 +1,28 @@
+{% extends 'accounts/header.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %} Perfil {% endblock %} 
+</head>
+<body>
+    {% block content %}
+    <h1>Vista para el perfil del usuario</h1>
+    <div>
+        <div>
+            <span class="data">Nombres:  </span><span>{{ user.first_name }}</span>
+        </div>
+        <div>
+            <span class="data">Apellidos:  </span><span>{{ user.surname }}</span>
+        </div>
+        <div>
+            <span class="data">Email:  </span><span>{{ user.email }}</span>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,59 @@
+{% load static %}
+<html>
+
+<head>
+    <title>
+        {% block title %} {%endblock %}
+    </title>
+    <link rel="shortcut icon" type="image/png" href="{% static '/css/img/logo_pag.png' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="cotainer" style="padding-bottom: 40px;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand">
+                <img src="{% static '/css/img/logo_pag.png' %}" height="40px">
+            </a>
+            <button class="navbar-toggler" data-target="menu" data-toggle="collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav mr-auto">
+                    {% if user.is_authenticated %}
+                    <li class="navbar-item"><a href="http://127.0.0.1:8000/Home_user" class="nav-link">Home</a></li>
+                    <li class="navbar-item"><a href="https://www.youtube.com/watch?v=kWvpG1kRh90" class="nav-link">Quienes Somos</a></li>
+                    <li class="navbar-item"><a href="http://127.0.0.1:8000/Ubicacion/" class="nav-link">Ubicación</a></li>
+                    <li class="navbar-item"><a href="http://127.0.0.1:8000/Reservas/" class="nav-link">Reservar</a></li>
+                    {% else %}
+                    <li class="navbar-item"><a href="http://127.0.0.1:8000/Home" class="nav-link">Home</a></li>
+                    <li class="navbar-item"><a href="https://www.youtube.com/watch?v=kWvpG1kRh90" class="nav-link">Quienes Somos</a></li>
+                    <li class="navbar-item"><a href="http://127.0.0.1:8000/Ubicacion/" class="nav-link">Ubicación</a></li>
+                    <li class="navbar-item"><a href="http://127.0.0.1:8000/Reservas/" class="nav-link">Reservar</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse 2-100 order-3 dual-collapse2">
+                <ul class="navbar-nav ml-auto">
+                    {% if user.is_authenticated %}
+                    <span style="margin-right: 20px; color: aliceblue;">Hola, <a style="color: aliceblue;" href="http://127.0.0.1:8000/Perfil/"> {{ user.first_name }}</a></span>
+                    <span><a href=" {% url 'Logout' %}">Cerrar Sesión</a></span>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/Login">Iniciar Sesión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/register">Registrarse</a></li>
+                    {% endif %}
+                </ul>
+            </div>   
+        </nav>
+    </div>
+    
+
+    {% block content %} {% endblock %}
+
+    <footer>
+
+
+    </footer>
+</body>
+
+</html>
