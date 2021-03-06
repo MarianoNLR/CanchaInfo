@@ -11,6 +11,7 @@
 </head>
 <body>
     {% block content %}
+    <!-- Preguntar como formula esto a la base de datos para asi poder comparar los datos ingresados con el def canchaLibre -->
     <form method="POST" action=".">
         {% csrf_token %}
         {{ form }}

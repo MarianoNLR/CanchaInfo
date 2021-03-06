@@ -28,6 +28,11 @@ class Turno(models.Model):
         return f'{self.persona.dni}: Turno para {self.dia}, en el horario de {self.hora} en {self.cancha}'
 
 
-
+def CanchaLibre(request):
+    turnos = Turno.objects.all()
+    listaTurno = []
+    listaTurno_Turno.append(self.dia)
+    listaTurno_Turno.append(self.hora)
+    listaTurno_Turno.append(self.cancha)
 
 
