@@ -24,6 +24,9 @@ class Turno(models.Model):
     persona = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     cancha = models.ForeignKey(Cancha, blank=False, null=False, on_delete=models.CASCADE)
 
+    class Meta:
+        ordering = ['dia']
+
     def get_dni(self):
         return self.persona.dni
     
@@ -39,14 +42,5 @@ class Turno(models.Model):
     def __str__(self):
         return f'{self.get_dni()} Turno para {self.dia}, en el horario de {self.hora} en {self.cancha}'
 
-    
-
-
-'''def CanchaLibre(request):
-    turnos = Turno.objects.all()
-    listaTurno = []
-    listaTurno_Turno.append(self.dia)
-    listaTurno_Turno.append(self.hora)
-    listaTurno_Turno.append(self.cancha)'''
 
 

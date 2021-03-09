@@ -8,19 +8,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block title %} Reserva de turno {% endblock %}
+    {% block content %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    {% block content %}
-    <!-- Preguntar como formula esto a la base de datos para asi poder comparar los datos ingresados con el def canchaLibre -->
-    <form method="POST" action=".">
-        {% csrf_token %}
-        {{ form }}
-        <div class="card-footer">
-            <button class="btn btn-primary btn-flat">
-                <i class="fas fa-save"></i> Confirmar Reserva
-            </button>
-        </div>
-    </form>
+                <form method="POST" action="." class="col-12">
+                    {% csrf_token %}
+                    <div class="input-group mb-2">
+                        {{form.cancha}}
+                    </div>
+                    <div class="input-group mb-2"> 
+                        {{form.dia}}
+                    </div>
+                    <div class="input-group mb-2">
+                        {{form.hora}}
+                    </div>
+                    <div class="input-group mb-2">
+                        {{form.persona}}
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary btn-flat">
+                            <i class="fas fa-save"></i>Confirmar Reserva
+                        </button>
+                    </div>
+                </form>
     {% endblock %}
 </body>
 </html>

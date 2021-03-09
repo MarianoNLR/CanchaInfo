@@ -23,6 +23,30 @@
             <span class="data">Email:  </span><span>{{ user.email }}</span>
         </div>
     </div>
+
+    <table class="table">
+        <thead>
+            <tr> 
+                <td colspan="4"><h2>Lista de Turnos</h2></td> 
+             </tr>
+          <tr>
+            <th scope="col">DNI</th>
+            <th scope="col">Nro. Cancha</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Horario</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for i in turnos %}
+            <tr>
+                <td>{{ i.persona.dni }}</td>
+                <td>{{ i.cancha_id }}</td>
+                <td>{{ i.dia }}</td>
+                <td>{{ i.hora }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+      </table>
     {% endblock %}
 </body>
 </html>

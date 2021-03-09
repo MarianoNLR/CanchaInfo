@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hola</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <table class="table">
+            <thead>
+                <tr> 
+                    <td colspan="4"><h2>Lista de Turnos</h2></td> 
+                 </tr>
+              <tr>
+                <th scope="col">DNI</th>
+                <th scope="col">Nro. Cancha</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Horario</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for i in turnos %}
+                <tr>
+                    <td>{{ i.persona.dni }}</td>
+                    <td>{{ i.cancha_id }}</td>
+                    <td>{{ i.dia }}</td>
+                    <td>{{ i.hora }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+    </body>
+</html>

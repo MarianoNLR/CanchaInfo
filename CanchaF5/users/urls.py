@@ -10,5 +10,5 @@ urlpatterns = [
 
     path('Home_user/', views.homeUser, name="user_home"),
     path('Reservas/', views.reservar, name="reservar"),
-    path('Perfil/', views.perfil, name="perfil_user"),
+    #path('Perfil/', views.perfil, name="perfil_user"),
 ]

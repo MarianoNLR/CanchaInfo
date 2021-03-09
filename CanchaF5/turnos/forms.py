@@ -9,20 +9,21 @@ class DateInput(forms.DateInput):
 class ReservaForm(ModelForm):
     class Meta:
         model = Turno
-        fields = ('cancha', 'dia', 'hora', 'persona')
+        fields = ('cancha', 'dia', 'hora')
 
         labels = {
             'cancha': 'Nro. Cancha',
             'dia': 'Fecha',
             'hora': 'Horario',
-            'persona': ' Persona',
+            #'persona': 'Persona',
         }
         widgets = {
             'cancha': forms.Select(attrs={'class': 'form-control'}),
             'dia':DateInput(attrs={'class': 'form-control'}),
             'hora':forms.Select(attrs={'class': 'form-control'}),
-            'persona': forms.Select(attrs={'class': 'form-control'}),
+            #'persona': forms.Select(attrs={'class': 'form-control'}),
             }
+
 
 
 
