@@ -16,23 +16,37 @@ class Cancha(models.Model):
     num_cancha = models.IntegerField(blank=False, null=False, unique=True)
 
     def __str__(self):
-        return f'Cancha {self.num_cancha}'
+        return f'{self.num_cancha}'
 
 class Turno(models.Model):
     dia = models.DateField()
     hora = models.CharField(blank=False, null=False, max_length=20, choices=HORARIOS)
-    dni = models.CharField(blank=False, null=False, max_length=10)
+    persona = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     cancha = models.ForeignKey(Cancha, blank=False, null=False, on_delete=models.CASCADE)
 
+    def get_dni(self):
+        return self.persona.dni
+    
+    def get_hora(self):
+        return self.hora
+    
+    def get_cancha(self):
+        return self.cancha
+    
+    def get_dia(self):
+        return self.dia
+
     def __str__(self):
-        return f'{self.persona.dni}: Turno para {self.dia}, en el horario de {self.hora} en {self.cancha}'
+        return f'{self.get_dni()} Turno para {self.dia}, en el horario de {self.hora} en {self.cancha}'
+
+    
 
 
-def CanchaLibre(request):
+'''def CanchaLibre(request):
     turnos = Turno.objects.all()
     listaTurno = []
     listaTurno_Turno.append(self.dia)
     listaTurno_Turno.append(self.hora)
-    listaTurno_Turno.append(self.cancha)
+    listaTurno_Turno.append(self.cancha)'''
 
 
