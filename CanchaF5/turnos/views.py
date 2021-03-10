@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from datetime import date
 from django.http import HttpRequest
 from django.views.generic import CreateView
 from django.urls import reverse_lazy, reverse
@@ -40,7 +41,7 @@ class FormularioTurnosView(HttpRequest):
         actual_user = request.user.id
         data = {
 
-            'turnos': Turno.objects.filter(persona_id=request.user.id).order_by('-dia'),
+            'turnos': Turno.objects.filter(persona_id=request.user.id).order_by('-dia')[:20],
         }
         return render(request, 'accounts/registrados/perfil.html', data)
     
@@ -58,13 +59,16 @@ class FormularioTurnosView(HttpRequest):
             cancha = request.POST.get('cancha')
             turnos = Turno.objects.all()
             for i in turnos:
+                a = i.get_hora()
+                b = i.get_cancha()
+                c = i.get_dia()
                 if (i.get_hora() == hora) and (form.cleaned_data.get('cancha') == i.get_cancha()) and (form.cleaned_data.get('dia') == i.get_dia()):
                     messages.info(request, "El turno ya existe")
                     return render(request, 'accounts/registrados/editar_turno.html', {"form":form,"turno":turno})
-                else:
-                    form.save()
-                    return redirect('lista_turnos')
-        return redirect('lista_turnos')
+            else:
+                form.save()
+            return redirect('lista_turnos')
+        return render(request, 'accounts/registrados/editar_turno.html', {"form":form,"turno":turno})
         
 
     def eliminar_turno(request, turno_id):
