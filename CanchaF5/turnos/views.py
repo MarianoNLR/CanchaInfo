@@ -43,6 +43,29 @@ class FormularioTurnosView(HttpRequest):
             'turnos': Turno.objects.filter(persona_id=request.user.id).order_by('-dia'),
         }
         return render(request, 'accounts/registrados/perfil.html', data)
+    
+    def edit_turno(request, turno_id):
+        turno = Turno.objects.filter(id=turno_id).first()
+        form = ReservaForm(instance=turno)
+        return render(request, "accounts/registrados/editar_turno.html", {"form":form, "turno": turno})
+
+    def actualizar_turno(request, turno_id):
+        turno = Turno.objects.get(pk=turno_id)
+        form = ReservaForm(request.POST, instance=turno)
+        if form.is_valid():
+            fecha = request.POST.get('dia')
+            hora = request.POST.get('hora')
+            cancha = request.POST.get('cancha')
+            turnos = Turno.objects.all()
+            for i in turnos:
+                if (i.get_hora() == hora) and (form.cleaned_data.get('cancha') == i.get_cancha()) and (form.cleaned_data.get('dia') == i.get_dia()):
+                    messages.info(request, "El turno ya existe")
+                    return render(request, 'accounts/registrados/editar_turno.html', {"form":form,"turno":turno})
+                else:
+                    form.save()
+                    return redirect('lista_turnos')
+        return redirect('lista_turnos')
+        
 
     def eliminar_turno(request, turno_id):
         try:

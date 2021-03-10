@@ -15,13 +15,13 @@
                 <form method="POST" action="." class="col-12">
                     {% csrf_token %}
                     <div class="input-group mb-2">
-                        {{form.cancha}}
+                        <span>Seleccione Cancha: {{form.cancha}}</span>
                     </div>
                     <div class="input-group mb-2"> 
-                        {{form.dia}}
+                        <span>Seleccione dia: {{form.dia}}</span>
                     </div>
                     <div class="input-group mb-2">
-                        {{form.hora}}
+                        <span>Seleccione horario: {{form.hora}}</span>
                     </div>
                     <div class="input-group mb-2">
                         {{form.persona}}

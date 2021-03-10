@@ -1,0 +1,36 @@
+{% extends 'accounts/header.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block title %} Mis Turnos {% endblock %}
+        <meta charset="UTF-8">
+        {% block content %}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <form method="POST" action="{% url 'actualizar_turno' turno.id %}" class="col-12">
+            {% csrf_token %}
+            <div class="input-group mb-2">
+                <span>Seleccione Cancha: {{form.cancha}}</span>
+            </div>
+            <div class="input-group mb-2"> 
+                <span>Seleccione dia: {{form.dia}}</span>
+            </div>
+            <div class="input-group mb-2">
+                <span>Seleccione horario: {{form.hora}}</span>
+            </div>
+            <div class="input-group mb-2">
+                {{form.persona}}
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary btn-flat">
+                    <i class="fas fa-save"></i>Confirmar Reserva
+                </button>
+            </div>
+        </form>
+    </body>
+    {% endblock %} 
+</html>
