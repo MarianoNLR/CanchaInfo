@@ -5,11 +5,11 @@ from django.views.generic import CreateView
 from django.urls import reverse_lazy, reverse
 from .models import Turno, Cancha
 from .models import Usuario
+from users.forms import CustomUserChangeForm
 from .forms import ReservaForm
 from users import urls, views
-from users.views import homeUser
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required 
 
 # Create your views here.
 class FormularioTurnosView(HttpRequest):
@@ -32,7 +32,7 @@ class FormularioTurnosView(HttpRequest):
                     solicitante.persona_id = request.user.id 
                     solicitante.save()
                     messages.success(request, 'Reserva creada con exito')
-                return redirect('user_home')
+                return redirect('lista_turnos')
         else:
             context = {'form': form}
             return render(request, 'accounts/registrados/reservas.html', context) 
@@ -40,11 +40,12 @@ class FormularioTurnosView(HttpRequest):
     def lista_turnos(request):
         actual_user = request.user.id
         data = {
-
             'turnos': Turno.objects.filter(persona_id=request.user.id).order_by('-dia')[:20],
         }
+        turnos = Turno.objects.filter(persona_id=request.user.id).order_by('-dia')
         return render(request, 'accounts/registrados/perfil.html', data)
     
+
     def edit_turno(request, turno_id):
         turno = Turno.objects.filter(id=turno_id).first()
         form = ReservaForm(instance=turno)
@@ -67,6 +68,7 @@ class FormularioTurnosView(HttpRequest):
                     return render(request, 'accounts/registrados/editar_turno.html', {"form":form,"turno":turno})
             else:
                 form.save()
+                messages.success(request, "Turno actualizado con exito!")
             return redirect('lista_turnos')
         return render(request, 'accounts/registrados/editar_turno.html', {"form":form,"turno":turno})
         
@@ -78,6 +80,24 @@ class FormularioTurnosView(HttpRequest):
             messages.error(request, "Ha ocurrido un error")
             return redirect("lista_turnos")
         turno.delete()
-        messages.error(request, f"El turno ha sido eliminado")
+        turnos = Turno.objects.filter(persona_id=request.user.id).order_by('-dia')
+        messages.success(request, "El turno ha sido eliminado")
         return redirect("lista_turnos")
+    
+    def edit_user(request, user_id):
+        usuario = Usuario.objects.filter(id=user_id).first()
+        form = CustomUserChangeForm(instance=usuario)
+        return render(request, "accounts/registrados/editar_user.html", {"form":form, "usuario":usuario})
+
+    def actualizar_user(request, user_id):
+        usuario = Usuario.objects.get(pk=user_id)
+        form = CustomUserChangeForm(request.POST, instance=usuario)
+        if form.is_valid():
+            form.save()
+            messages.info(request, "Datos actualizados con exito!")
+            return redirect('lista_turnos')
+        else:
+            messages.error(request, "Ha ocurrido un error, intente nuevamente")
+            return render(request, "accounts/registrados/editar_user.html", {"form":form, "usuario":usuario})
+        return render(request, "accounts/registrados/editar_user.html", {"form":form, "usuario":usuario})
         

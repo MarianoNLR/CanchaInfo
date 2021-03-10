@@ -1,0 +1,29 @@
+{% extends 'accounts/header.html' %}
+{% load static %}
+
+{% block title %} Edicion de Usuario {% endblock %}
+
+{% block content %} 
+
+<form method="POST" action="{% url 'actualizar_user' user.id %}" class="col-12">
+    {% csrf_token %}
+    <div class="input-group mb-2">
+        <span>Nombre de Usuario {{form.username}}</span>
+    </div>
+    <div class="input-group mb-2">
+        <span>Nombres: {{form.first_name}}</span>
+    </div>
+    <div class="input-group mb-2"> 
+        <span>Apellidos: {{form.surname}}</span>
+    </div>
+    <div class="input-group mb-2">
+        <span>Email: {{form.email}}</span>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-primary btn-flat">
+            <i class="fas fa-save"></i>Guardar Cambios
+        </button>
+    </div>
+</form>
+
+{% endblock %}

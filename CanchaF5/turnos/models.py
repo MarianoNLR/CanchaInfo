@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 from users.models import Usuario
 
 HORARIOS = (
