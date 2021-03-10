@@ -1,8 +1,12 @@
+{% extends 'accounts/header.html' %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Hola</title>
+        {% block title %} Mis Turnos {% endblock %}
         <meta charset="UTF-8">
+        {% block content %}
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
     </head>
@@ -26,9 +30,13 @@
                     <td>{{ i.cancha_id }}</td>
                     <td>{{ i.dia }}</td>
                     <td>{{ i.hora }}</td>
+                    <td>
+                        <a class="btn btn-danger" href="{% url 'eliminar' i.id %}">Eliminar</a>
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
           </table>
     </body>
+    {% endblock %} 
 </html>

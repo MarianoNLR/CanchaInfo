@@ -7,10 +7,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block title %} Perfil {% endblock %} 
+    {% block title %} Perfil {% endblock %}
+    {% block content %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    {% block content %}
+    {% if message %}
+        <div class="aler alert-success" role="alert">
+            Turno eliminado exitosamente!
+        </div>
+    {% endif %}
+    
     <h1>Vista para el perfil del usuario</h1>
     <div>
         <div>
@@ -27,7 +34,7 @@
     <table class="table">
         <thead>
             <tr> 
-                <td colspan="4"><h2>Lista de Turnos</h2></td> 
+                <td colspan="6"><h2>Lista de Turnos</h2></td> 
              </tr>
           <tr>
             <th scope="col">DNI</th>
@@ -43,6 +50,9 @@
                 <td>{{ i.cancha_id }}</td>
                 <td>{{ i.dia }}</td>
                 <td>{{ i.hora }}</td>
+                <td>
+                    <a class="btn btn-danger" href="{% url 'eliminar' i.id %}">Eliminar</a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
