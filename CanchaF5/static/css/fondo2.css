@@ -1,0 +1,51 @@
+body{
+    background: url(./img/opcion2.jpg) no-repeat center center fixed;
+    background-size: cover; 
+}
+
+.input-group-text {
+    background: #0378d8 !important;
+    color: white !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+
+.form-group{
+    padding-bottom: 1px;
+}
+
+.main-section{
+    margin: 0 auto;
+    margin-top: 1%;
+    padding: 0;
+}
+
+.modal-content{
+    background-color: #2A2D2A;
+    opacity: .85;
+    border-radius: 0.25rem 0 0 0.25rem;
+    padding: 0 20px;
+}
+
+.user-img{
+    margin-top: -50px;
+    margin-bottom: 35px;
+}
+
+.user-img img{
+    width: 100px;
+    height: 100px;
+}
+
+button{
+    width: 60%;
+    margin: 5px 0 5px;
+}
+
+#footer {
+    width: 100%;
+    height: 81px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+}

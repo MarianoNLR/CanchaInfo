@@ -38,6 +38,7 @@
     </script>
 {% endblock %}
 <body>
+    
     <div class="container-lg well span6">
         <div class="row-fluid">
             <div class="span8">
@@ -74,34 +75,38 @@
     {% if message.success %}
             Turno eliminado exitosamente!
     {% endif %}
-    <table class="table" style="margin-top: 20px;">
-        <thead>
-            <tr> 
-                <td colspan="6"><h2>Lista de Turnos</h2></td> 
-             </tr>
-          <tr>
-            <th scope="col">DNI</th>
-            <th scope="col">Nro. Cancha</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Horario</th>
-            <th scope="col">Opciones</th>
-          </tr>
-        </thead>
-        <tbody>
-        {% for i in turnos %}
+    <div class="container-lg well span6" style="background-color: aliceblue; opacity: 94%; border-radius: 10px;">
+        <table class="table" style="margin-top: 20px;">
+            
+            <thead>
+                <tr> 
+                    <td colspan="6"><h2>Lista de Turnos</h2></td> 
+                </tr>
             <tr>
-                <td>{{ i.persona.dni }}</td>
-                <td>{{ i.cancha_id }}</td>
-                <td>{{ i.dia }}</td>
-                <td>{{ i.hora }}</td>
-                <td>
-                    <a class="btn btn-danger" href="#" onclick="eliminarTurno({{ i.id }})"><i class="fas fa-trash btn-xs"></i></a>
-                    <a class="btn btn-success btn-xs" href="{% url 'editar_turno' i.id %}"><i class="fas fa-edit btn-xs"></i></a>
-                </td>
-            </tr> 
-        {% endfor %}    
-        </tbody>
-      </table>
+                <th scope="col">DNI</th>
+                <th scope="col">Nro. Cancha</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Horario</th>
+                <th scope="col">Opciones</th>
+            </tr>
+            </thead>
+            <tbody>
+        
+            {% for i in turnos %}
+                <tr>
+                    <td>{{ i.persona.dni }}</td>
+                    <td>{{ i.cancha_id }}</td>
+                    <td>{{ i.dia }}</td>
+                    <td>{{ i.hora }}</td>
+                    <td>
+                        <a class="btn btn-danger" href="#" onclick="eliminarTurno({{ i.id }})"><i class="fas fa-trash btn-xs"></i></a>
+                        <a class="btn btn-success btn-xs" href="{% url 'editar_turno' i.id %}"><i class="fas fa-edit btn-xs"></i></a>
+                    </td>
+                </tr> 
+            {% endfor %}    
+            </tbody>
+        </table>
+    </div>
     {% endblock %}
 
 </body>

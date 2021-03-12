@@ -6,7 +6,7 @@ from django.contrib import messages
 from turnos import urls
 from django.contrib.auth.decorators import login_required
 from .models import Usuario
-from .forms import CustomUserChangeForm
+from .forms import CustomUserChangeForm, CustomUserCreationForm
 from django.contrib import messages
 
 # Create your views here.

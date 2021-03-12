@@ -41,7 +41,7 @@ class FormularioTurnosView(HttpRequest):
         actual_user = request.user.id
         hoy = date.today()
         data = {
-            'turnos': Turno.objects.filter(persona_id=request.user.id, dia__gt=hoy).order_by('-dia'),
+            'turnos': Turno.objects.filter(persona_id=request.user.id, dia__gte=hoy).order_by('-dia'),
         }
         return render(request, 'accounts/registrados/perfil.html', data)
     

@@ -1,13 +1,20 @@
+body{
+    background: url(./img/opcion1.jpg) no-repeat center center fixed;
+    background-size: cover; 
+}
+
 .span8 {
-    background-color: #343a40;
+    background-color: #ffffff;
     border-radius: 10px;
     padding-left: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
+    opacity: 77%;
 }
 
 .datos {
-    color: rgb(255, 255, 255);
+    color: rgb(2, 2, 2);
+    opacity: 100%;
 }
 
 .btn-warning{
