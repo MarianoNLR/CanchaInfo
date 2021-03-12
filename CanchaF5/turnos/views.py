@@ -39,10 +39,10 @@ class FormularioTurnosView(HttpRequest):
 
     def lista_turnos(request):
         actual_user = request.user.id
+        hoy = date.today()
         data = {
-            'turnos': Turno.objects.filter(persona_id=request.user.id).order_by('-dia')[:20],
+            'turnos': Turno.objects.filter(persona_id=request.user.id, dia__gt=hoy).order_by('-dia'),
         }
-        turnos = Turno.objects.filter(persona_id=request.user.id).order_by('-dia')
         return render(request, 'accounts/registrados/perfil.html', data)
     
 
@@ -64,7 +64,7 @@ class FormularioTurnosView(HttpRequest):
                 b = i.get_cancha()
                 c = i.get_dia()
                 if (i.get_hora() == hora) and (form.cleaned_data.get('cancha') == i.get_cancha()) and (form.cleaned_data.get('dia') == i.get_dia()):
-                    messages.info(request, "El turno ya existe")
+                    messages.error(request, "El turno ya existe")
                     return render(request, 'accounts/registrados/editar_turno.html', {"form":form,"turno":turno})
             else:
                 form.save()

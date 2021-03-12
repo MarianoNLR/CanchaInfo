@@ -3,27 +3,47 @@
 
 {% block title %} Edicion de Usuario {% endblock %}
 
-{% block content %} 
-
-<form method="POST" action="{% url 'actualizar_user' user.id %}" class="col-12">
-    {% csrf_token %}
-    <div class="input-group mb-2">
-        <span>Nombre de Usuario {{form.username}}</span>
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/fomulario.css' %}"> 
+<div class="modal-dialog text-center">
+    <div class="col-sm-11 main-section">
+        <div class="modal-content">
+            <label style="margin-left: 40px;font-size: 30px; color: aliceblue;">Editar Datos</label>
+            <form method="POST" action="{% url 'actualizar_user' user.id %}" class="col-12">
+                {% csrf_token %}
+                <div class="input-group mb-2">
+                    <div class="input-group-append col-md-4">
+                        <label style="font-size:20px;color: aliceblue;">Usuario: </label>
+                    </div>
+                    {{form.username}}
+                </div>
+                <div class="input-group mb-2">
+                    <div class="input-group-append col-md-4" >
+                        <label style="font-size:20px;color: aliceblue;">Nombres:</label>
+                    </div>
+                    {{form.first_name}}
+                </div>
+                <div class="input-group mb-2">
+                    <div class="input-group-append col-md-4">
+                        <label style="font-size:20px;color: aliceblue;">Apellidos: </label>
+                    </div>
+                    {{form.surname}}
+                </div>
+                <div class="input-group mb-2">
+                    <div class="input-group-append col-md-4">
+                        <label style="font-size:20px;color: aliceblue;">Email: </label>
+                    </div>
+                    {{form.email}}
+                </div>
+                <div class="d-flex justify-content-center mt-3 login_container" style="margin-left: 40px;">
+                    <input type="submit" value="Guardar Cambios" class="btn btn-primary">
+                </div>
+                <div class="d-flex justify-content-center mt-3 login_container" style="margin-left: 40px;">
+                    <a class="btn btn-primary" href="http://127.0.0.1:8000/Perfil/">Cancelar</a>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="input-group mb-2">
-        <span>Nombres: {{form.first_name}}</span>
-    </div>
-    <div class="input-group mb-2"> 
-        <span>Apellidos: {{form.surname}}</span>
-    </div>
-    <div class="input-group mb-2">
-        <span>Email: {{form.email}}</span>
-    </div>
-    <div class="card-footer">
-        <button class="btn btn-primary btn-flat">
-            <i class="fas fa-save"></i>Guardar Cambios
-        </button>
-    </div>
-</form>
+</div>
 
 {% endblock %}

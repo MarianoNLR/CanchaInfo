@@ -52,14 +52,34 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     {% if messages %}
-            {% for message in messages %} 
+            {% for message in messages %}
+            {% if message.tags == 'success' %}
                 <script>
                     Swal.fire({
                         "title": "Notificación",
                         "text": "{{message}}",
-                        "icon": "success"
+                        "icon": "success",
                     })
                 </script>
+                {% endif %}
+                {% if message.tags == 'error' %} 
+                <script>
+                    Swal.fire({
+                        "title": "Notificación",
+                        "text": "{{message}}",
+                        "icon": "error",
+                    })
+                </script>
+                {% endif %}
+                {% if message.tags == 'info' %} 
+                <script>
+                    Swal.fire({
+                        "title": "Notificación",
+                        "text": "{{message}}",
+                        "icon": "info",
+                    })
+                </script>
+                {% endif %}
             {% endfor %}
         {% endif %}
 </body>
