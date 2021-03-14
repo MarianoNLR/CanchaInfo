@@ -9,12 +9,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block title %} Inicio {% endblock %}
     {% block content %}
-    <link rel="stylesheet" type="text/css" href="{% static '/css/fomulario.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/perfil.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/reservacion.css' %}">
 </head>
 <body>
-    <h1 class="hola">Inicio para el usuario registrado</h1>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/kWvpG1kRh90" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+    <h1 style="text-align: center; background-color: aliceblue ; opacity: 97%; margin: 0px; border-radius: 0px; padding: 10px;">Inicio para el usuario registrado</h1>
+    <body>
+        <div style="background-color: aliceblue ; opacity: 85%; margin: 2%; border-radius: 10px; padding: 10px;">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</br>. Inventore debitis at eveniet enim blanditiis deleniti nisi re</br>rum, placeat nostrum architecto repellendus odio illo? Ducimus minima, animi culpa doloremque dicta voluptatem!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A laboriosam </br>Mucho LOREEEEEEEMMMMMMMMMMMM </br>erit rerum vitae dolores assumenda cum maxime? Consectetur minima maxime quidem! Suscipit optio soluta esse harum molestias? Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus non porro laudantium quasi! Deleniti soluta temporibus quisquam. In illo voluptatibus dolores, cum quasi mollitia! Voluptas sapiente facere quisquam asperiores et. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora reprehenderit sunt eum voluptate facilis ipsum iste quos vero vitae suscipit! Voluptatum nisi facere consectetur veritatis mollitia quat.</p>
+        </div>
+        <label style="margin: 2%;">
+            <div style="background-color: aliceblue ; opacity: 85%; margin: 0px; border-radius: 10px; padding: 10px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25475.314014450563!2d-41.9266272974694!3d-22.76086741815975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96555b5418c1c5%3A0x4057990cbfc85c98!2sPraia%20da%20Tartaruga!5e0!3m2!1ses-419!2sar!4v1615584734663!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>    
+            </div>
+        <img src="/static/css/img/reservacion.png" width="340" height="340">   
+        </label>
+        <label style="margin: 2%;">
+            <a href="http://127.0.0.1:8000/reservas/">
+                <div class="contenedor">
+                    <figure>
+                        
+                            <img src="/static/css/img/reservacion.png" width="340" height="340">
+                            <div class="capa">
+                                <h3>Reservas El Padre</h3>
+                                <p>Reserva maniana y comete esta de almuerzo </p>
+                            </div>
+                    </figure>
+                </div>
+            </a>
+        </label>
+    </body>
     {% endblock %}
 </body>
 </html>

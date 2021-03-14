@@ -4,7 +4,7 @@ from .views import UsuariosViews
 
 urlpatterns = [
     path('register/', UsuariosViews.registerPage, name="Registro"),
-    path('Home/', UsuariosViews.home, name="home"),
+    path('', UsuariosViews.home, name="home"),
     path('Login/', UsuariosViews.loginPage, name="Login"),
     path('Logout/',UsuariosViews.logoutUser, name="Logout"),
     path('Home_user/', UsuariosViews.homeUser, name="user_home"),
