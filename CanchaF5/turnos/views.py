@@ -13,6 +13,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 class FormularioTurnosView(HttpRequest):
+    @login_required
     def reservar(request):
         form = ReservaForm()
         if request.method == 'POST':
@@ -37,6 +38,7 @@ class FormularioTurnosView(HttpRequest):
             context = {'form': form}
             return render(request, 'accounts/registrados/reservas.html', context) 
 
+    @login_required
     def lista_turnos(request):
         actual_user = request.user.id
         hoy = date.today()
@@ -45,12 +47,13 @@ class FormularioTurnosView(HttpRequest):
         }
         return render(request, 'accounts/registrados/perfil.html', data)
     
-
+    @login_required
     def edit_turno(request, turno_id):
         turno = Turno.objects.filter(id=turno_id).first()
         form = ReservaForm(instance=turno)
         return render(request, "accounts/registrados/editar_turno.html", {"form":form, "turno": turno})
 
+    @login_required
     def actualizar_turno(request, turno_id):
         turno = Turno.objects.get(pk=turno_id)
         form = ReservaForm(request.POST, instance=turno)
@@ -72,7 +75,7 @@ class FormularioTurnosView(HttpRequest):
             return redirect('lista_turnos')
         return render(request, 'accounts/registrados/editar_turno.html', {"form":form,"turno":turno})
         
-
+    @login_required
     def eliminar_turno(request, turno_id):
         try:
             turno = Turno.objects.filter(pk=turno_id)
@@ -84,11 +87,13 @@ class FormularioTurnosView(HttpRequest):
         messages.success(request, "El turno ha sido eliminado")
         return redirect("lista_turnos")
     
+    @login_required
     def edit_user(request, user_id):
         usuario = Usuario.objects.filter(id=user_id).first()
         form = CustomUserChangeForm(instance=usuario)
         return render(request, "accounts/registrados/editar_user.html", {"form":form, "usuario":usuario})
 
+    @login_required
     def actualizar_user(request, user_id):
         usuario = Usuario.objects.get(pk=user_id)
         form = CustomUserChangeForm(request.POST, instance=usuario)

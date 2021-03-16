@@ -17,7 +17,7 @@ class UsuariosViews(HttpRequest):
     def home(request):
         return render(request, 'accounts/home.html') 
 
-
+    @login_required
     def homeUser(request):
         return render(request, 'accounts/registrados/user_home.html')
 
@@ -25,10 +25,9 @@ class UsuariosViews(HttpRequest):
     def reservar(request):
         return render(request, 'accounts/registrados/reservas.html')
 
-
+    @login_required
     def perfil(request):
         return render(request, 'accounts/registrados/perfil.html', {"mensaje": 'OK'})
-
 
     def registerPage(request):
         form =  CustomUserCreationForm()
@@ -67,11 +66,13 @@ class UsuariosViews(HttpRequest):
         logout(request)
         return redirect('Login')
 
+    @login_required
     def edit_user(request, user_id):
         usuario = Usuario.objects.filter(id=user_id).first()
         form = CustomUserChangeForm(instance=usuario)
         return render(request, "accounts/registrados/editar_user.html", {"form":form, "usuario":usuario})
 
+    @login_required
     def actualizar_user(request, user_id):
         usuario = Usuario.objects.get(pk=user_id)
         form = CustomUserChangeForm(request.POST, instance=usuario)
