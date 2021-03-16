@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block title %} Inicio {% endblock %}
     {% block content %}
+<<<<<<< Updated upstream
     <link rel="stylesheet" type="text/css" href="{% static '/css/perfil.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/css/reservacion.css' %}">
 </head>
@@ -40,6 +41,78 @@
             </a>
         </label>
     </body>
+=======
+    <link rel="stylesheet" type="text/css" href="{% static '/css/user_home.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-slider">
+        <ul class="slider">
+          <li id="slide1">
+            <img src="{% static '/css/img/cancha1.jpg' %}"/>
+          </li>
+          <li id="slide2">
+            <img src="{% static 'css/img/cancha2.jpg' %}"/>
+          </li>
+        </ul>
+        <ul class="menu">
+          <li>
+            <a href="#slide1"></a>
+          </li>
+          <li>
+            <a href="#slide2"></a>
+          </li>
+        </ul>
+        
+      </div>
+    <h1 class="hola">Inicio para el usuario registrado</h1>
+        <div style="background-color: aliceblue ; opacity: 85%; margin: 10px; border-radius: 10px; padding: 10px; width: 32%;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58867.69516225966!2d-41.905017!3d-22.756809!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96555b5418c1c5%3A0x4057990cbfc85c98!2sSol%20Da%20Tartaruga!5e0!3m2!1ses-419!2sar!4v1615912855436!5m2!1ses-419!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    <div class="contenedor-botones">
+        <h1 class="hola" style="color: aliceblue;">Administracion de turnos</h1>
+            <div class="contenedor">
+                <a href="http://127.0.0.1:8000/reservas/">
+                    <figure>
+                        <img src="{% static '/css/img/reservations.jpg' %}" alt="">
+                        <div class="capa">
+                            <h3>
+                                Reservar Turno
+                            </h3>
+                            <p>Reserva un turno en alguna de nuestras canchas de manera sencilla</p>
+                        </div>
+                    </figure>
+                </a>
+            </div>
+            <div class="contenedor">
+                <a href="http://127.0.0.1:8000/Perfil/">
+                    <figure>
+                        <img src="{% static '/css/img/reservations.jpg' %}" alt="">
+                        <div class="capa">
+                            <h3>
+                                Ver mi lista de turnos
+                            </h3>
+                            <p>Vea la lista de sus turnos actuales</p>
+                        </div>
+                    </figure>
+                </a>
+            </div>
+        <div>
+            <div class="contenedor">
+                <a href="http://127.0.0.1:8000/Perfil/">
+                    <figure>
+                        <img src="{% static '/css/img/reservations.jpg' %}" alt="">
+                        <div class="capa">
+                            <h3>
+                                Cancelar Turno
+                            </h3>
+                            <p>Cancele un turno reservado de manera sencilla</p>
+                        </div>
+                    </figure>
+                </a>
+            </div>
+    </div>
+>>>>>>> Stashed changes
     {% endblock %}
 </body>
 </html>
