@@ -23,10 +23,13 @@
                 <ul class="navbar-nav mr-auto">
                     {% if user.is_authenticated %}
                     <li class="navbar-item"><a href="http://127.0.0.1:8000/Home_user" class="nav-link">Home</a></li>
-                    <li class="navbar-item"><a href="http://127.0.0.1:8000/reservas/" class="nav-link">Reservar</a></li>
+                    <li class="navbar-item"><a href="http://127.0.0.1:8000/Home_user/#botones-turnos" class="nav-link">Turnos</a></li>
+                    <li class="navbar-item"><a href="http://127.0.0.1:8000/Home_user/#ubicacion" class="nav-link">Ubicacion</a></li>
                     {% else %}
                     <li class="navbar-item"><a href="http://127.0.0.1:8000/" class="nav-link">Home</a></li>
-                    <li class="navbar-item"><a href="http://127.0.0.1:8000/reservas/" class="nav-link">Reservar</a></li>
+                    <li class="navbar-item"><a href="http://127.0.0.1:8000/Home_user/#botones-turnos" class="nav-link">Turnos</a></li>
+                    <li class="navbar-item"><a href="http://127.0.0.1:8000/#ubicacion" class="nav-link">Ubicacion</a></li>
+                    <li class="navbar-item"><a href="http://127.0.0.1:8000/#informacion" class="nav-link">Información</a></li>
                     {% endif %}
                 </ul>
             </div>

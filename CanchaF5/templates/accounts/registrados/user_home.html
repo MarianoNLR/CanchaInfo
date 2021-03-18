@@ -11,8 +11,10 @@
     {% block content %}
     <link rel="stylesheet" type="text/css" href="{% static '/css/user_home.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
 </head>
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <div class="container-slider">
         <ul class="slider">
           <li id="slide1">
@@ -31,17 +33,13 @@
           </li>
         </ul>
         
-      </div>
-    <h1 class="hola">Inicio para el usuario registrado</h1>
-        <div style="background-color: aliceblue ; opacity: 85%; margin: 10px; border-radius: 10px; padding: 10px; width: 32%;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58867.69516225966!2d-41.905017!3d-22.756809!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96555b5418c1c5%3A0x4057990cbfc85c98!2sSol%20Da%20Tartaruga!5e0!3m2!1ses-419!2sar!4v1615912855436!5m2!1ses-419!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    <div class="contenedor-botones">
-        <h1 class="hola" style="color: aliceblue;">Administracion de turnos</h1>
+    </div>
+    <div class="contenedor-botones" id="botones-turnos">
+        <h1 class="hola" style="color: aliceblue; margin: 10px;">Administracion de turnos</h1>
             <div class="contenedor">
                 <a href="http://127.0.0.1:8000/reservas/">
                     <figure>
-                        <img src="{% static '/css/img/reservations.jpg' %}" alt="">
+                        <img src="{% static '/css/img/calendario_check.png' %}" alt="" style="border-radius: 2px;">
                         <div class="capa">
                             <h3>
                                 Reservar Turno
@@ -54,7 +52,7 @@
             <div class="contenedor">
                 <a href="http://127.0.0.1:8000/Perfil/">
                     <figure>
-                        <img src="{% static '/css/img/reservations.jpg' %}" alt="">
+                        <img src="{% static '/css/img/archivo.png' %}" alt="">
                         <div class="capa">
                             <h3>
                                 Ver mi lista de turnos
@@ -68,7 +66,7 @@
             <div class="contenedor">
                 <a href="http://127.0.0.1:8000/Perfil/">
                     <figure>
-                        <img src="{% static '/css/img/reservations.jpg' %}" alt="">
+                        <img src="{% static '/css/img/calendario_cruz.png' %}" alt="">
                         <div class="capa">
                             <h3>
                                 Cancelar Turno
@@ -79,6 +77,12 @@
                 </a>
             </div>
     </div>
+    <label id="ubicacion">
+        <h1 style="color: aliceblue; margin:10px;">Donde nos encontramos</h1>
+        <div style="background-color: aliceblue ; opacity: 85%; margin: 10px; border-radius: 10px; padding: 10px;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58867.69516225966!2d-41.905017!3d-22.756809!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96555b5418c1c5%3A0x4057990cbfc85c98!2sSol%20Da%20Tartaruga!5e0!3m2!1ses-419!2sar!4v1615912855436!5m2!1ses-419!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </label>
     {% endblock %}
 </body>
 </html>
