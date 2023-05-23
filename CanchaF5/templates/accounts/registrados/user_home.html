@@ -35,7 +35,12 @@
         
     </div>
     <div class="contenedor-botones" id="botones-turnos">
-        <h1 class="hola" style="color: aliceblue; margin: 10px;">Administracion de turnos</h1>
+        
+        <div style="display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;;">
             <div class="contenedor">
                 <a href="http://127.0.0.1:8000/reservas/">
                     <figure>
@@ -62,7 +67,6 @@
                     </figure>
                 </a>
             </div>
-        <div>
             <div class="contenedor">
                 <a href="http://127.0.0.1:8000/Perfil/">
                     <figure>
@@ -76,13 +80,16 @@
                     </figure>
                 </a>
             </div>
-    </div>
-    <label id="ubicacion">
-        <h1 style="color: aliceblue; margin:10px;">Donde nos encontramos</h1>
-        <div style="background-color: aliceblue ; opacity: 95%; margin: 10px; border-radius: 10px; padding: 10px;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58867.69516225966!2d-41.905017!3d-22.756809!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96555b5418c1c5%3A0x4057990cbfc85c98!2sSol%20Da%20Tartaruga!5e0!3m2!1ses-419!2sar!4v1615912855436!5m2!1ses-419!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
-    </label>
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <label id="ubicacion">
+            <h1 style="color: aliceblue; margin:10px; text-shadow: 4px 4px 2px rgba(0,0,0,1);">Donde nos encontramos</h1>
+            <div style="background-color: aliceblue ; opacity: 95%; margin: 10px; border-radius: 10px; padding: 10px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58867.69516225966!2d-41.905017!3d-22.756809!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96555b5418c1c5%3A0x4057990cbfc85c98!2sSol%20Da%20Tartaruga!5e0!3m2!1ses-419!2sar!4v1615912855436!5m2!1ses-419!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </label>
+    </div>
     {% endblock %}
 </body>
 </html>
