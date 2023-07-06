@@ -110,6 +110,17 @@ button{
     margin-top: 30px;
 }
 
+.contenedor-botones {
+    padding: 10px;
+    background-color: #ffffffe0;
+}
+
+.contenedor-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .contenedor-botones{
     margin-top: 5%;
     width: 100%;
@@ -132,12 +143,12 @@ button{
     margin: auto;
 }
 
-.container-slider{
+.contenedor-slider{
     margin: auto;
     background-color: #ffffffe0;
     width: 100%;
     padding: 30px;
-    padding-bottom: 1px;
+    padding-bottom: 30px;
     border-top: black;
   }
   
